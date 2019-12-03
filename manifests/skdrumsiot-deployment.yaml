@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skdrumsiot
+  labels:
+    app: iot
+spec:
+  selector:
+    matchLabels:
+      app: iot
+      tier: api
+  template:
+    metadata:
+      labels:
+        app: iot
+        tier: api
+    spec:
+      containers:
+        - name: skdrumsiot
+          image: gcr.io/google-samples/hello-app:1.0
+          ports:
+            - containerPort: 8080
